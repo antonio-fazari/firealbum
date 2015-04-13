@@ -1,0 +1,51 @@
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+@import 'font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html {
+	position: static;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+.page {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+      max-width: 730px;
+  }
+}
+
+// Component styles are injected through grunt
+// injector
+@import 'collection/collection.scss';
+@import 'main/main.scss';
+// endinjector

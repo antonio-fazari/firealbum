@@ -1,0 +1,14 @@
+<!-- Collection Page Template -->
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div>
+	<h2>Collection Page</h2>
+	<div ng-repeat="photo in photos">
+		<p>{{photo.full_name}}</p>
+	</div>
+
+	<div class="btn btn--file">
+		<i class="fa fa-camera"></i>
+		<input type="file" id="photo" />
+	</div>
+</div>
