@@ -6,4 +6,5 @@ public
 client/bower_components
 dist
 npm-debug.log
+aws_s3_config.json
 /server/config/local.env.js
