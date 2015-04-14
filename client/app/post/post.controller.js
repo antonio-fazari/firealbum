@@ -3,32 +3,35 @@
 
 	angular
 		.module('firealbumPost')
-	  .controller('PostCtrl', ['$scope', 'PhotoService', PostCtrl]);
+		.controller('PostCtrl', ['$scope', 'CollectionService', 'PhotoService', PostCtrl]);
 
-	  function PostCtrl($scope, PhotoService) {
-	    var post = this;
+		function PostCtrl($scope, CollectionService, PhotoService) {
+			var post = this;
 
-	    /**
-	     * Initialise the post controller.
-	     */
-	    post.init = function() {
-	    	$scope.pageClass = 'page--post';
-	    }
+			/**
+			 * Initialise the post controller.
+			 */
+			post.init = function() {
+				$scope.pageClass = 'page--post';
+				$scope.photo = PhotoService.getPhoto().data;
+				$scope.collection = CollectionService.getCollection();
+			}
 
-	    /**
-	     * Add photo to firebase.
-	     */
-	    $scope.addPhoto = function() {
-	    	var photo = {
-	    		data: 'test',
-	    		caption: 'testing',
-	    		timestamp: new Date().getTime()
-	    	};
+			/**
+			 * Add photo to firebase.
+			 */
+			$scope.addPhoto = function() {
+				var photo = {
+					data: $scope.photo,
+					caption: 'Testing',
+					timestamp: new Date().getTime()
+				};
+				console.log(photo);
 
-	    	$scope.photos.$add(photo);
-	    }
+				$scope.collection.$add(photo);
+			}
 
-	    post.init();
+			post.init();
 
-	  }
+		}
 })()
