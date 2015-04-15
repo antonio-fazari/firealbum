@@ -3,9 +3,8 @@
 
 	angular
 		.module('firealbumCollection')
-		.controller('CollectionCtrl', ['$rootScope', '$scope', '$location', '$firebaseArray', 'CollectionService', 'PhotoService', CollectionCtrl]);
-
-		function CollectionCtrl($rootScope, $scope, $location, $firebaseArray, CollectionService, PhotoService) {
+		.controller('CollectionCtrl', ['$rootScope', '$scope', '$location', '$firebaseArray', 'CollectionService', 'PhotoService',
+		function ($rootScope, $scope, $location, $firebaseArray, CollectionService, PhotoService) {
 			var collection = this;
 
 			/**
@@ -18,16 +17,16 @@
 				$scope.photos = CollectionService.getCollection();
 				// Bind change events.
 				collection.bindFileChangeEvent();
-			}
+			};
 
 			/**
 			 * Bind File Change Event to Photo Button.
 			 */
 			collection.bindFileChangeEvent = function() {
-				$("#photo").change(function (e) {
+				$('#photo').change(function (e) {
 					collection.readURL(this);
 				});
-			}
+			};
 
 			/**
 			 * Read URL from file upload.
@@ -48,12 +47,13 @@
 						// Set current uploaded photo.
 						PhotoService.setPhoto(photo);
 						$rootScope.$apply($location.path('/post'));
-					}
+					};
 
 					reader.readAsDataURL(input.files[0]);
 				}
-			}
+			};
 
 			collection.init();
-		}
-})(jQuery)
+		}]);
+
+})(jQuery);

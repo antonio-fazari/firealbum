@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 var AWS = require('aws-sdk');
 
-if (process.env.NODE_ENV == 'development') {
+if (process.env.NODE_ENV === 'development') {
   AWS.config.loadFromPath('server/config/aws_s3_config.json');
 }
 

@@ -3,9 +3,8 @@
 
 	angular
 		.module('firealbumPost')
-		.controller('PostCtrl', ['$scope', '$http', '$location', 'CollectionService', 'PhotoService', PostCtrl]);
-
-		function PostCtrl($scope, $http, $location, CollectionService, PhotoService) {
+		.controller('PostCtrl', ['$scope', '$http', '$location', 'CollectionService', 'PhotoService',
+		function ($scope, $http, $location, CollectionService, PhotoService) {
 			var post = this;
 			var targetWidth = '612';
 			var targetHeight = '612';
@@ -27,7 +26,7 @@
 					$scope.photo = PhotoService.getPhoto().data;
 					$scope.collection = CollectionService.getCollection();
 				}
-			}
+			};
 
 			post.resizeImage = function() {
 		    // Create new data uri.
@@ -37,7 +36,7 @@
 		    	// Update and apply new src.
 					$scope.photo = newDataUri;
 		    });
-			}
+			};
 
 			/**
 			 * Add photo to firebase.
@@ -64,9 +63,9 @@
 				    // called asynchronously if an error occurs
 				    // or server returns response with an error status.
 				  });
-			}
+			};
 
 			post.init();
 
-		}
-})()
+		}]);
+})();

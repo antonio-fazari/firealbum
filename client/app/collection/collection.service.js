@@ -3,10 +3,9 @@
 
   angular
     .module('firealbumCollection')
-    .factory('CollectionService', ['$firebaseArray', CollectionService]);
+    .factory('CollectionService', ['$firebaseArray', function ($firebaseArray) {
 
-  function CollectionService($firebaseArray) {
-    var ref = new Firebase("https://mrandmrscoletta.firebaseio.com/photos");
+    var ref = new Firebase('https://mrandmrscoletta.firebaseio.com/photos');
     var collection = $firebaseArray(ref);
 
     function Collection() {
@@ -19,10 +18,6 @@
       return collection;
     }
 
-    function addPhoto(photo) {
-      // TODO - add photo function.
-    }
-
     function getCollection() {
       return collection;
     }
@@ -30,10 +25,9 @@
     return {
       Collection: Collection,
       newCollection: newCollection,
-      addPhoto: addPhoto,
       getCollection: getCollection
     };
 
-  }
+  }]);
 
 })();
