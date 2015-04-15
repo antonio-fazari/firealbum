@@ -82,5 +82,14 @@
     "build": "grunt build",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
-  "private": true
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antonio-fazari/firealbum.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
