@@ -5,6 +5,7 @@
   "dependencies": {
     "aws-sdk": "^2.1.23",
     "body-parser": "~1.5.0",
+    "bower": "latest",
     "composable-middleware": "^0.3.0",
     "compression": "~1.0.1",
     "connect-mongo": "^0.4.1",
@@ -13,13 +14,14 @@
     "errorhandler": "~1.0.0",
     "express": "~4.0.0",
     "express-session": "~1.0.2",
+    "grunt": "~0.4.4",
+    "grunt-cli": "latest",
     "lodash": "~2.4.1",
     "method-override": "~1.0.0",
     "morgan": "~1.0.0",
     "serve-favicon": "~2.0.1"
   },
   "devDependencies": {
-    "grunt": "~0.4.4",
     "grunt-autoprefixer": "~0.7.2",
     "grunt-wiredep": "~1.8.0",
     "grunt-concurrent": "~0.5.0",
@@ -77,10 +79,11 @@
     "node": "0.12.2"
   },
   "scripts": {
-    "postinstall": "npm run build",
+    "postinstall": "npm run bower && npm run build",
     "start": "node server/app.js",
-    "test": "grunt test",
-    "build": "grunt build",
+    "test": "./node_modules/grunt-cli/grunt test",
+    "build": "./node_modules/grunt-cli/grunt build",
+    "bower": "./node_modules/bower/bin/bower install",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
   "repository": {
