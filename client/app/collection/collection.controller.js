@@ -16,7 +16,6 @@
 				$scope.pageClass = 'page--collection';
 				// Create a synchronized array.
 				$scope.photos = CollectionService.getCollection();
-				console.log($scope.photos);
 				// Bind change events.
 				collection.bindFileChangeEvent();
 			}

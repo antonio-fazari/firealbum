@@ -3,7 +3,10 @@
 var express = require('express');
 var router = express.Router();
 var AWS = require('aws-sdk');
-AWS.config.loadFromPath('server/config/aws_s3_config.json');
+
+if (process.env.NODE_ENV == 'development') {
+  AWS.config.loadFromPath('server/config/aws_s3_config.json');
+}
 
 var s3Bucket = new AWS.S3( { params: {Bucket: 'firealbum'} } );
 
