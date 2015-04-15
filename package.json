@@ -82,7 +82,7 @@
     "postinstall": "npm run bower && npm run build",
     "start": "node server/app.js",
     "test": "./node_modules/grunt-cli/grunt test",
-    "build": "./node_modules/grunt-cli/grunt build",
+    "build": "./node_modules/grunt-cli/bin/grunt build",
     "bower": "./node_modules/bower/bin/bower install",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   },
