@@ -79,7 +79,8 @@
     "node": "0.12.2"
   },
   "scripts": {
-    "postinstall": "npm run bower && npm run build",
+    "postinstall": "npm run devDependencies && npm run bower && npm run build",
+    "devDependencies": "npm install --dev",
     "start": "node server/app.js",
     "test": "./node_modules/grunt-cli/grunt test",
     "build": "./node_modules/grunt-cli/bin/grunt build",
