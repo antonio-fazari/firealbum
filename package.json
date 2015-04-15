@@ -1,6 +1,6 @@
 {
   "name": "firealbum",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {
     "aws-sdk": "^2.1.23",
@@ -74,10 +74,11 @@
     "should": "~3.3.1"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "0.12.2"
   },
   "scripts": {
-    "start": "npm run build && node server/app.js",
+    "postinstall": "npm run build",
+    "start": "node server/app.js",
     "test": "grunt test",
     "build": "grunt build",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
