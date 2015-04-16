@@ -53,6 +53,9 @@
 						photoInfo.caption === undefined) {
 					$scope.error = true;
 					$scope.message = "Please fill in all fields";
+				} else if ($scope.uploading) {
+					// Return early since we are uploading.
+					return false;
 				} else {
 					$scope.error = false;
 					$scope.uploading = true;
