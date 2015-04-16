@@ -1,12 +1,14 @@
 
 $fa-font-path: "/bower_components/font-awesome/fonts";
+$base-font-size: 16px;
+$roboto: 'Roboto', helvetica, arial, sans-serif;
+$color-grey-bg: #EDEDED;
 
 @import 'font-awesome/scss/font-awesome';
 
 /**
  * App-wide Styles
  */
-
 *,
 *:before,
 *:after {
@@ -23,6 +25,10 @@ body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	font-family: $roboto;
+	font-size: $base-font-size;
+	font-weight: 300;
+	line-height: 1.5;
 }
 
 img {
@@ -31,12 +37,45 @@ img {
   width: auto;
 }
 
+h1, h2, h3, h4 {
+	line-height: 1.275;
+	font-weight: 300;
+}
+
+h1 {
+	font-size: 2.2em;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
 .page {
 	height: 100%;
 	width: 100%;
 	margin: 0;
 }
 
+.weight--thin {
+	font-weight: 100;
+}
+
+.card {
+	.card-content {
+		overflow: hidden;
+	}
+}
+
+.feedback {
+	padding: 5px;
+	&.error {
+		color: red !important;
+	}
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -48,4 +87,6 @@ img {
 // injector
 @import 'collection/collection.scss';
 @import 'main/main.scss';
+@import 'post/post.scss';
+@import 'theme/font.scss';
 // endinjector

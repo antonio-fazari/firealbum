@@ -1,15 +1,20 @@
-.btn--file {
-		position: fixed;
-		bottom: 25px;
-		right: 25px;
-		font-size: 50px;
-		overflow: hidden;
+.page--collection {
+	background-color: $color-grey-bg;
 }
 
-.btn--file input[type=file] {
+.fixed-action-btn {
+		position: fixed;
+		bottom: 45px;
+		right: 24px;
+}
+
+.fixed-action-btn input[type=file] {
 		position: absolute;
 		top: 0;
 		right: 0;
+		left: 0;
+		bottom: 0;
+		z-index: 9999;
 		min-width: 100%;
 		min-height: 100%;
 		font-size: 100px;

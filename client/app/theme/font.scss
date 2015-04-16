@@ -1,0 +1,51 @@
+$font-face: 'icomoon';
+
+@font-face {
+  font-family: $font-face;
+  src: url('assets/fonts/icomoon/#{$font-face}.eot');
+  src: url('assets/fonts/icomoon/#{$font-face}.eot?') format('eot'),
+       url('assets/fonts/icomoon/#{$font-face}.woff') format('woff'),
+       url('assets/fonts/icomoon/#{$font-face}.ttf')  format('truetype');
+}
+
+%icon-font {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  //Better Font Rendering.
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$icon-camera-alt: "\e600";
+$icon-photo-camera: "\e601";
+$icon-switch-camera: "\e602";
+$icon-camera: "\e603";
+$icon-camera-front: "\e604";
+$icon-camera-rear: "\e605";
+$icon-camera-roll: "\e606";
+$icon-apps: "\e607";
+$icon-arrow-back: "\e608";
+$icon-arrow-drop-down: "\e609";
+$icon-arrow-drop-down-circle: "\e60a";
+$icon-arrow-drop-up: "\e60b";
+$icon-arrow-forward: "\e60c";
+$icon-cancel: "\e60d";
+$icon-check: "\e60e";
+$icon-chevron-left: "\e60f";
+$icon-chevron-right: "\e610";
+$icon-close: "\e611";
+$icon-expand-less: "\e612";
+$icon-expand-more: "\e613";
+$icon-fullscreen: "\e614";
+$icon-fullscreen-exit: "\e615";
+$icon-menu: "\e616";
+$icon-more-horizontal: "\e617";
+$icon-more-vertical: "\e618";
+$icon-refresh: "\e619";
+$icon-unfold-less: "\e61a";
+$icon-unfold-more: "\e61b";

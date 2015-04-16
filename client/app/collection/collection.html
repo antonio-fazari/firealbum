@@ -2,13 +2,24 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div>
-	<h2>Collection Page</h2>
-	<div ng-repeat="photo in photos">
-		<img src="{{photo.url}}" />
+	<div class="row" ng-repeat="photo in photos | orderBy:'-timestamp'">
+		<div class="col">
+			<div class="card">
+		    <div class="card-image">
+		      <img src="{{photo.url}}">
+		      <span class="card-title">{{photo.title}}</span>
+		    </div>
+		    <div class="card-content">
+		      <p>{{photo.caption}}</p>
+		    </div>
+		  </div>
+		</div>
 	</div>
 
-	<div class="btn btn--file">
-		<i class="fa fa-camera"></i>
-		<input type="file" id="photo" />
-	</div>
+	<div class="fixed-action-btn">
+		<input type="file" id="photo" capture="camera" />
+    <a class="btn-floating btn-large pink">
+      <i class="large mdi-image-photo-camera"></i>
+    </a>
+  </div>
 </div>

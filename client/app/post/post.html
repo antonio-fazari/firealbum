@@ -1,6 +1,36 @@
 <!-- Post Page Template -->
+<div ng-include="'components/navbar/navbar.html'"></div>
+<!-- Feedback during upload -->
+<div class="feedback" ng-show="uploading">
+	<span>Uploading</span>
+	<div class="progress">
+	    <div class="indeterminate"></div>
+	</div>
+</div>
 <div>
-	<h2>Post Page</h2>
-	<img src="{{photo}}" />
-  <button ng-click="addPhoto()">Post</button>
+	<div class="row">
+		<div class="col">
+			<div class="card">
+				<div class="card-image">
+					<img src="{{photo}}" />
+				</div>
+				<div class="card-content">
+					<div class="input-field">
+	          <input id="title" type="text" class="validate" ng-model="photoInfo.title" required>
+	          <label for="title">Title</label>
+	        </div>
+	        <div class="input-field">
+	          <textarea id="caption" class="materialize-textarea" ng-model="photoInfo.caption" required></textarea>
+	          <label for="caption">Caption</label>
+	        </div>
+	        <p class="feedback" ng-show="error" ng-class="{error: error}">{{message}}</p>
+	        <!-- Form actions -->
+	        <div class="form-actions right">
+		        <a class="waves-effect waves-teal btn-flat" ng-class="{disabled: uploading}" ng-click="cancelPhoto">Cancel</a>
+						<a class="waves-effect waves-teal btn-flat" ng-class="{disabled: uploading}" ng-click="uploadPhoto(photoInfo)">Post</a>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

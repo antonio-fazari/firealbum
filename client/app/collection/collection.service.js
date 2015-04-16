@@ -3,31 +3,45 @@
 
   angular
     .module('firealbumCollection')
-    .factory('CollectionService', ['$firebaseArray', function ($firebaseArray) {
+    .factory('CollectionService', ['$rootScope', '$timeout', '$firebaseArray',
+      function ($rootScope, $timeout, $firebaseArray) {
+        var hasLoaded = false;
+        var photosRef = new Firebase('https://mrandmrscoletta.firebaseio.com/photos');
+        var query = photosRef.orderByChild("timestamp");
+        var collection = $firebaseArray(query);
 
-    var ref = new Firebase('https://mrandmrscoletta.firebaseio.com/photos');
-    var collection = $firebaseArray(ref);
+        collection.$loaded()
+          .then(function() {
+            hasLoaded = true;
+            $timeout(function() {
+              $rootScope.$broadcast('collectionLoaded', hasLoaded);
+            });
+          })
+          .catch(function(error) {
+            console.log("Error:", error);
+          });
 
-    function Collection() {
-      this.photos = collection;
-    }
+        function Collection() {
+          this.photos = collection;
+        }
 
-    function newCollection() {
-      var collection = new Collection();
+        function newCollection() {
+          var collection = new Collection();
 
-      return collection;
-    }
+          return collection;
+        }
 
-    function getCollection() {
-      return collection;
-    }
+        function getCollection() {
+          return collection;
+        }
 
-    return {
-      Collection: Collection,
-      newCollection: newCollection,
-      getCollection: getCollection
-    };
+        return {
+          Collection: Collection,
+          newCollection: newCollection,
+          getCollection: getCollection,
+          hasLoaded: hasLoaded
+        };
 
-  }]);
+      }]);
 
 })();
