@@ -35,8 +35,9 @@ module.exports = function(app) {
     app.use(function (req, res, next) {
       if (!req.headers.host.match(/^www\./)) {
         res.writeHead (301, {'Location': config.uri});
+      } else {
+        return next();
       }
-      next();
     });
   }
 
