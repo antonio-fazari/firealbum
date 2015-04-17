@@ -7,7 +7,7 @@
       function ($rootScope, $timeout, $firebaseArray) {
         var hasLoaded = false;
         var photosRef = new Firebase('https://mrandmrscoletta.firebaseio.com/photos');
-        var query = photosRef.orderByChild("timestamp");
+        var query = photosRef.orderByChild('timestamp');
         var collection = $firebaseArray(query);
 
         collection.$loaded()
@@ -18,7 +18,8 @@
             });
           })
           .catch(function(error) {
-            console.log("Error:", error);
+            // TODO: Need to handle errors properly.
+            console.log('Error:', error);
           });
 
         function Collection() {

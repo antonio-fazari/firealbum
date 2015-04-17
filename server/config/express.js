@@ -15,8 +15,6 @@ var errorHandler = require('errorhandler');
 var path = require('path');
 var config = require('./environment');
 
-console.log(config);
-
 module.exports = function(app) {
   var env = app.get('env');
 
@@ -34,6 +32,12 @@ module.exports = function(app) {
     app.use(express.static(path.join(config.root, 'public')));
     app.set('appPath', config.root + 'public');
     app.use(morgan('dev'));
+    app.use(function (req, res, next) {
+      if (!req.headers.host.match(/^www\./)) {
+        res.writeHead (301, {'Location': config.uri});
+      }
+      next();
+    });
   }
 
   if ('development' === env || 'test' === env) {

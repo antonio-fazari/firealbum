@@ -3,6 +3,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 $base-font-size: 16px;
 $roboto: 'Roboto', helvetica, arial, sans-serif;
 $color-grey-bg: #EDEDED;
+$color-white: #FFFFFF;
 
 @import 'font-awesome/scss/font-awesome';
 
@@ -29,6 +30,7 @@ body {
 	font-size: $base-font-size;
 	font-weight: 300;
 	line-height: 1.5;
+	background-color: $color-grey-bg;
 }
 
 img {
@@ -76,11 +78,12 @@ h3 {
 		color: red !important;
 	}
 }
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  .container {
-      max-width: 730px;
-  }
+	.container {
+		max-width: 730px;
+	}
 }
 
 // Component styles are injected through grunt

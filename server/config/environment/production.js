@@ -13,6 +13,10 @@ module.exports = {
             process.env.PORT ||
             8080,
 
+  // Uri
+  uri:      process.env.URI ||
+            'http://www.mrandmrscoletta.com',
+
   // MongoDB connection options
   mongo: {
     uri:    process.env.MONGOLAB_URI ||

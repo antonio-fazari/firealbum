@@ -16,11 +16,11 @@
 				</div>
 				<div class="card-content">
 					<div class="input-field">
-	          <input id="title" type="text" class="validate" ng-model="photoInfo.title" required>
+	          <input id="title" type="text" class="validate" ng-model="photoInfo.title">
 	          <label for="title">Title</label>
 	        </div>
 	        <div class="input-field">
-	          <textarea id="caption" class="materialize-textarea" ng-model="photoInfo.caption" required></textarea>
+	          <textarea id="caption" class="materialize-textarea" ng-model="photoInfo.caption"></textarea>
 	          <label for="caption">Caption</label>
 	        </div>
 	        <p class="feedback" ng-show="error" ng-class="{error: error}">{{message}}</p>
