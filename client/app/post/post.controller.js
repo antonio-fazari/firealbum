@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 	'use strict';
 
 	angular
@@ -31,6 +31,7 @@
 					// Get photo and collection data.
 					$scope.photo = PhotoService.getPhoto().data;
 					$scope.collection = CollectionService.getCollection();
+					post.bindActiveClass();
 				}
 			};
 
@@ -43,6 +44,12 @@
 					$scope.photo = newDataUri;
 		    });
 			};
+
+			post.bindActiveClass = function() {
+				$("input.materialize-text").bind('click touchstart', function (e) {
+					$(this).parent().find('label').addClass('active');
+				});
+			}
 
 			/**
 			 * Add photo to firebase.
@@ -102,4 +109,4 @@
 			post.init();
 
 		}]);
-})();
+})(jQuery);
