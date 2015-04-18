@@ -5,9 +5,10 @@
     .module('firealbumCollection')
     .factory('CollectionService', ['$rootScope', '$timeout', '$firebaseArray',
       function ($rootScope, $timeout, $firebaseArray) {
+        var LIMIT = 100;
         var hasLoaded = false;
         var photosRef = new Firebase('https://mrandmrscoletta.firebaseio.com/photos');
-        var query = photosRef.orderByChild('timestamp');
+        var query = photosRef.limitToLast(LIMIT);
         var collection = $firebaseArray(query);
 
         collection.$loaded()

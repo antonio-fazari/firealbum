@@ -2,13 +2,15 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <!-- Feedback during upload -->
 <div class="feedback" ng-show="uploading">
-	<span>Uploading</span>
-	<div class="progress">
-	    <div class="indeterminate"></div>
+	<div class="wrapper">
+		<h2>Uploading</h2>
+		<div class="progress">
+		    <div class="indeterminate"></div>
+		</div>
 	</div>
 </div>
 <div>
-	<div class="row">
+	<div class="preview row">
 		<div class="col">
 			<div class="card">
 				<div class="card-image">
@@ -17,7 +19,7 @@
 				<div class="card-content">
 					<form novalidate>
 						<div class="input-field">
-		          <input id="title" type="text" ng-model="photoInfo.title">
+		          <input id="title" class="materialize-text" type="text" ng-model="photoInfo.title">
 		          <label for="title">Title</label>
 		        </div>
 		        <div class="input-field">

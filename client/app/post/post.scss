@@ -1,3 +1,29 @@
 .page--post {
 	background-color: $color-grey-bg;
+
+	.feedback {
+	  position: fixed;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+	  z-index: 999;
+	  background: rgba(0,0,0, 0.8);
+	  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+	  padding: 15px 20px;
+	  top: 56px;
+	  text-align: center;
+
+	  .wrapper {
+	  	position: absolute;
+		  left: 20px;
+		  right: 20px;
+		  top: 50%;
+		  transform: translate(0, -50%);
+		  color: white;
+	  }
+	}
+
+	.preview {
+		margin-top: 10px;
+	}
 }

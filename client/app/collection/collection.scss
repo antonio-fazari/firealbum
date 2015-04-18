@@ -1,10 +1,18 @@
 .row {
 	width: 100%;
 	max-width: 45rem;
+	margin-bottom: 0;
+
+	.col {
+		min-width: 100%;
+	}
 }
 
 .card {
 	.card-image {
+		min-height: 200px;
+		background-color: $color-grey-bg-dark;
+
 		.card-title {
 			right: 0;
 			// background: -webkit-linear-gradient(transparent, #000000 90%), transparent;

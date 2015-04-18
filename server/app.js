@@ -11,9 +11,11 @@ var express = require('express');
 var config = require('./config/environment');
 // Setup server
 var app = express();
-var server = require('http').createServer(app);
+var env = app.get('env');
+
 require('./config/express')(app);
 require('./routes')(app);
+var server = require('http').createServer(app);
 
 // Start server
 server.listen(config.port, config.ip, function () {

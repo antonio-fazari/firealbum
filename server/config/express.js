@@ -28,17 +28,20 @@ module.exports = function(app) {
   app.use(cookieParser());
 
   if ('production' === env) {
+    // Handle all requests and redirect if not www.
+    app.use(function (req, res, next) {
+      if (!req.headers.host.match(/^www\./)) {
+        console.log(req.headers);
+        var path = "http://www.mrandmrscoletta.com" + req.path;
+        res.redirect(301, path);
+      } else {
+        next();
+      }
+    });
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
     app.set('appPath', config.root + 'public');
     app.use(morgan('dev'));
-    app.use(function (req, res, next) {
-      if (!req.headers.host.match(/^www\./)) {
-        res.writeHead (301, {'Location': config.uri});
-      } else {
-        return next();
-      }
-    });
   }
 
   if ('development' === env || 'test' === env) {
